@@ -24,7 +24,7 @@ def create(request):
     new_post.sub_teacher = request.POST["sub_teacher"]
     new_post.body = request.POST["body"]
     new_post.video = request.FILES.get("video")
-    new_post.extrafile = request.POST["extrafile"]
+    new_post.extrafile = request.FILES.get("extrafile")
     new_post.save()
     return redirect("education:detail", new_post.id)
 
@@ -44,7 +44,7 @@ def update(request, id):
     update_post.sub_teacher = request.POST["sub_teacher"]
     update_post.body = request.POST["body"]
     update_post.video = request.FILES.get("video")
-    update_post.extrafile = request.POST["extrafile"]
+    update_post.extrafile = request.FILES.get("extrafile")
     update_post.save()
     return redirect("education:detail", update_post.id)
 
