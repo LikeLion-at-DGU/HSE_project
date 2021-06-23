@@ -22,20 +22,20 @@
 
 <link href="{% static './main.97292821.css' %}" rel="stylesheet"></head>
 
-<body>
+<body style="font-family: 'Nanum Gothic Coding', monospace;">
 
  <!-- Add your content of header -->
 
 
 
 <!-- Add your site or app content here -->
-<div class="background-image-container white-text-container" style="background-image: url('./assets/images/img-05.jpg')">
+<div class="background-image-container white-text-container" style="background-color: gray">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1>The Factory</h1>
-                <p class="">THE BEST PLACE FOR WORK TOGETHER</p>
+                <h1 style="font-family: 'Nanum Gothic Coding', monospace;">동국대학교 Hi-Sw 봉사단</h1>
+                <p class="">Dongguk University</p>
                 <a href="#contact-section-container" class="btn btn-primary btn-lg anchor-link" title="">Get in touch</a>
             </div>
         </div>
@@ -52,25 +52,24 @@
         <div class="row" style="text-align: center;">
             <div class="col-xs-12 col-md-4">
                 <div class="fa-container">
-                    <i class="fa fa-comment-o fa-3x" aria-hidden="true"></i>
-                </div>
-                <h3 class="text-center">Profile</h3>
-                <p>자신의 봉사내역을 확인할 수 있습니다.</p>
-            </div>
-
-            <div class="col-xs-12 col-md-4">
-                <div class="fa-container">
-                    <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>
+                    <i class="fas fa-laptop-code fa-3x" aria-hidden="true"></i>
                 </div>
                 <h3 class="text-center">Education</h3>
                 <p>봉사를 위한 교육을 받을 수 있습니다.</p>
             </div>
             <div class="col-xs-12 col-md-4">
                 <div class="fa-container">
-                    <i class="fa fa-bell-o fa-3x" aria-hidden="true"></i>
+                    <i class="fas fa-poll fa-3x" aria-hidden="true"></i>
                 </div>
                 <h3 class="text-center">Apply</h3>
                 <p>봉사 지원을 할 수 있습니다.</p>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="fa-container">
+                    <i class="far fa-user fa-3x" aria-hidden="true"></i>
+                </div>
+                <h3 class="text-center">Profile</h3>
+                <p>자신의 봉사내역을 확인할 수 있습니다.</p>
             </div>
         </div>
     </div>
@@ -84,17 +83,10 @@
                 <p>Dongguk</p>
             </div>
             <div class="col-md-6 col-md-offset-6 text-column">
-                <h2>Dui augue orci</h2>
-                <h3>Lorem ipsum</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet consectetur dolor. Phasellus ut
-                    lacus tellus. In pretium lobortis blandit. Nam eu laoreet velit. Vivamus laoreet, sem nec scelerisque
-                    elementum, dui augue aliquet urna, ut bibendum purus erat ut massa. Mauris diam orci, feugiat a turpis
-                    et, congue accumsan risus. Nulla malesuada leo sodales, auctor augue quis, condimentum lacus. Phasellus
-                    sed sollicitudin quam, a bibendum urna.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet consectetur dolor. Phasellus «
-                    ut lacus » tellus. In pretium lobortis blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet consectetur dolor. Phasellus ut
-                    lacus tellus. In pretium lobortis blandit.</p>
+                <h2>Hi-Sw 봉사단 이란?</h2>
+                <h3></h3>
+                <p>Hi-Sw 봉사단은 정보소외계층, 중학생, 고등학생 그리고 비전공자 봉사단으로 뉘어져 있습니다.</p>
+                <p>각 봉사단의 봉사활통은 엔트리게임만들기, 구름IDE를 이용한 코딩 교육, 오조봇 등의 코딩 교육용 플랫폼을 이용한 IT교육 봉사활동 위주로 진행됩니다.</p>
 
             </div>
         </div>
@@ -107,31 +99,30 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-12 section-container-spacer">
-                <h2 class="text-center">Consectetur adipiscing</h2>
+                <h2 class="text-center">봉사교육내용</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-4">
-                <img src="{%static 'images/img-02.jpg'%}" alt="" class="img-responsive">
-                <h3 class="text-center">Consectetur</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet consectetur dolor. Phasellus ut
-                    lacus tellus. In pretium lobortis blandit.</p>
+                <img src="{%static 'images/img-02.png'%}" alt="" class="img-responsive">
+                <h3 class="text-center">엔트리게임</h3>
+                <p>엔트리 툴을 사용하여 엔트리게임을 만들고 알고리즘에 대해 배워가는 시간을 가집니다.</p>
             </div>
 
-            <div class="col-xs-12 col-md-4">
-                <img src="{%static 'images/img-03.jpg'%}" alt="" class="img-responsive">
-                <h3 class="text-center">Malesuada</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet consectetur dolor. Phasellus ut
-                    lacus tellus. In pretium lobortis blandit.</p>
+            <div class="col-xs-12 col-md-4" >
+                <img src="{%static 'images/img-03.png'%}" alt="" class="img-responsive">
+                <h3 class="text-center">구름코딩</h3>
+                <p>구름 IDE를 사용하여 학생들이 코딩을 직접 해보는 시간을 가집니다.</p>
             </div>
             <div class="col-xs-12 col-md-4">
-                <img src="{%static 'images/img-04.jpg'%}" alt="" class="img-responsive">
-                <h3 class="text-center">Phasellus</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet consectetur dolor. Phasellus ut
-                    lacus tellus. In pretium lobortis blandit.</p>
+                <img src="{%static 'images/img-04.png'%}" alt="" class="img-responsive">
+                <h3 class="text-center">오조봇 체험</h3>
+                <p>오조봇을 보고 배우면서 로봇에 대한 학생들의 시야를 확장하는 시간을 가집니다.</p>
             </div>
         </div>
     </div>
+    <!-- 교육안내 페이지로 감 -->
+    <a href="#" style="float: right;">더보기...</a>
 </div>
 
 <div class="">
@@ -142,16 +133,16 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <h3>Phone</h3>
-                        <p>+ 123 45 67 890</p>
+                        <p>+82 010 1231 5132</p>
 
                         <h3>E-mail</h3>
-                        <p>hello@email.com</p>
+                        <p>HiSwDonnguk@gmail.com</p>
 
                     </div>
 
                     <div class="col-xs-12 col-sm-6">
                         <h3>Address</h3>
-                        <p>42 rue rouelle 75015, Paris</p>
+                        <p>동국대학교 신공학관 8층 OOO호</p>
 
                         <h3>Open hours</h3>
                         <p>Mon - Fri : 9AM - 5PM</p>
@@ -215,16 +206,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 
-<footer class="footer-container white-text-container">
+<footer class="footer-container white-text-container" style="background-color : gray;">
     <div class="container">
         <div class="row">
                 <div class="col-md-4">
                     <h4>About us</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet consectetur dolor</p>
+                    <p>We HSE team this means Hi-Sw-Education we developed this site for education</p>
                 </div>
 
                 <div class="col-md-4">
-                    <h4>Do you like ? Share this !</h4>
+                    <h4>Social</h4>
                     <div>
                         <p>
                             <a href="https://www.twitter.com" class="fa-icon" title="">
@@ -234,27 +225,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                 <i class="fa fa-facebook" aria-hidden="true"></i>
                             </a>
                             <a href="https://www.linkedin.com" class="fa-icon" title="">
-                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
                             </a>
                         </p>
                     </div>
                     <div>
-                        <p><small>© Untitled | Website created with <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/<a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a></small></p>
+                        <p><small>©HSE_Project Shimbaton_3Team</small></p>
                     </div>
 
                 </div>
 
                 <div class="col-md-4">
                         
-                    <h4>Subscribe to newsletter</h4>
-                    
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="text" class="form-control footer-input-text">
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-default btn-newsletter ">OK</button>
-                            </div>
-                        </div>
+                    <h4>Version</h4>
+                    <p>1.0 </p>
                         
                         
                     </div>
@@ -271,5 +255,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 <script type="text/javascript" src="{% static './main.faaf51f9.js' %}"></script>
-
+   <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous">
+    </script>
 {% endblock %}
