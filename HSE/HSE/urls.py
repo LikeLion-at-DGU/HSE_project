@@ -24,4 +24,5 @@ urlpatterns = [
     path("education/", include("education.urls")),
     path("accounts/", include("allauth.urls")),
     path("mypage/", include("mypage.urls")),
+    path("apply/",include("apply.urls")),
 ]

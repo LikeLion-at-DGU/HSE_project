@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for i in main_l %}
+
+    선택된 봉사자 : {{i.name}} {{i.phone_num}}
+    <br>
+{% endfor %} 
+
+
+{% endblock %}

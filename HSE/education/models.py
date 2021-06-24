@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class EduPost(models.Model):
     title = models.CharField(max_length=200)
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
-    pub_date = models.DateTimeField()
+    pub_date = models.DateTimeField() 
     due_date = models.DateTimeField()
     main_teacher = models.IntegerField()
     sub_teacher = models.IntegerField()
