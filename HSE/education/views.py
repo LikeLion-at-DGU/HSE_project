@@ -5,6 +5,11 @@ from django.utils import timezone
 # Create your views here.
 
 
+def edulist(request):
+    post = EduPost.objects.all()
+    return render(request, "education/edulist.html", {"posts": post})
+
+
 def detail(request, id):
     post = get_object_or_404(EduPost, pk=id)
     return render(request, "education/detail.html", {"post": post})
@@ -52,4 +57,4 @@ def update(request, id):
 def delete(request, id):
     delete_post = EduPost.objects.get(id=id)
     delete_post.delete()
-    return redirect("main:mainpage")
+    return redirect("main:showMain")
