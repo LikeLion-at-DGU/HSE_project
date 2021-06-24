@@ -4,7 +4,7 @@ from .views import *
 app_name = "education"
 
 urlpatterns = [
-    path("<int:id>", detail, name="detail"),
+    path("<int:id>/", detail, name="detail"),
     path("new/", new, name="new"),
     path("create/", create, name="create"),
     path("edit/<int:id>", edit, name="edit"),

@@ -22,4 +22,5 @@ urlpatterns = [
     path("", views.showMain),
     path("/components", views.componentsMain),
     path("education/", include("education.urls")),
+    path("apply/",include("apply.urls")),
 ]

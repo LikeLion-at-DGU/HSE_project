@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'main',
     'education',
     'apply',
-    'mypage'
+    'mypage',
 ]
 
 MIDDLEWARE = [
