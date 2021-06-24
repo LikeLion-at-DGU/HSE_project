@@ -19,11 +19,15 @@
               <li>
                   <p>
                     <!-- 교육페이지 -->
-                      <a href="./detail.html" class="btn btn-default navbar-btn" >Education</a>
+                      <a href="{% url 'education:edulist'%}" class="btn btn-default navbar-btn" >Education</a>
                       <!-- 지원페이지 -->
                       <a href="./components.html" class="btn btn-default navbar-btn" >Apply</a>
                       <!-- 로그인 페이지는 allauth툴 사용해서 로그인 기능 활용  -->
-                      <a href="./components.html" class="btn btn-default navbar-btn" >Log-in</a> 
+                      {%if user.is_authenticated%}
+                        <a href="{%url 'account_logout'%}" class="btn btn-default navbar-btn" >Log-out</a> 
+                      {%else%}
+                        <a href="{%url 'account_login'%}" class="btn btn-default navbar-btn" >Log-in</a> 
+                      {%endif%}
 
                   </p>
               </li>
