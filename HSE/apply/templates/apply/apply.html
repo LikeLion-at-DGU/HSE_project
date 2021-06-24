@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% comment %} 
+<h1>{{post.title}}</h1>
+작성자 : {{post.writer}}
+작성 날짜 : {{post.pub_date}}
+<hr>
+{% if post.video%}
+    <p><img src="{{ post.image.url }}" alt="사진 나올 곳"></p>
+{% endif %}
+{% if post.extra%}
+    <p><img src="{{ post.image.url }}" alt="사진 나올 곳"></p>
+{% endif %}
+<p>{{post.body}}</p> {% endcomment %}
+<p>봉사 내용 간략 요약</p>
+
+
+
+{% if post.due_date>=now%}
+<a href="{%url 'apply:apply_main' %}" class="btn_post">주강사 신청하기</a>
+<a href="{%url 'apply:apply_sub' %}" class="btn_post">보조강사 신청하기</a>
+{% else %}
+<a href="{%url 'apply:result' post.id %}" class="btn_post">결과 확인하기</a>
+{% endif %}
+{% endblock %}
+

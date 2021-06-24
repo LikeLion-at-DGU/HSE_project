@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form action="{%url 'apply:apply_new'%}" method="post" enctype="multipart/form-data">
+	{%csrf_token%}
+	<p>보조 강사 신청</p>
+    <p>강사유형: <input type="text" placeholder="주강사 or 보조강사로 작성" name="main_or_sub"></p>
+    <p>신청자 이름: <input type="text" name="name"></p>
+    <p>핸드폰 번호: <input type="number" name="phone_num"></p>
+    <p>봉사명: <input type="text" name="title"></p>
+
+	<button type="submit">제출</button>
+</form>
+
+{% endblock %}
