@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{%if user.is_authenticated%}
+    <h1>봉사 목록</h1>
+    {%for post in posts%}
+    <div>
+        <a href="{%url 'education:detail' post.id%}"><h3>{{post.title}}</h3></a>
+	    {{post.writer}}<br>
+    </div>
+    {%endfor%}
+
+{%else%}
+<script>
+    alert("로그인 후 이용해주세요");
+    window.location.href="{%url 'account_login'%}"
+</script>
+{%endif%}
+
+{% endblock %}
