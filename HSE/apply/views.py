@@ -2,14 +2,21 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import apply
 from education.models import EduPost
 import random
-# Create your views here.
-from django.utils import timezone
-
+import datetime
 
 def apply_detail(request, id):
     post = get_object_or_404(EduPost, pk=id)
-    rn=timezone.now()
-    return render(request, "apply/apply.html", {"post": post, "now":rn})
+    date=post.due_date
+    rn = datetime.datetime.now()
+    rn=rn.strftime('%y-%m-%d %H:%M:%S')
+    rn=datetime.datetime.strptime(rn,'%y-%m-%d %H:%M:%S')
+   
+    if date>=rn:
+        t=True
+    else:
+        t=False
+
+    return render(request, "apply/apply.html", {"post": post, "rn":t})
 
 
 def apply_main(request):
@@ -26,7 +33,7 @@ def apply_new(request):
     new_apply.main_or_sub=request.POST['main_or_sub']
     new_apply.applicant = request.user
     new_apply.save()
-    return redirect('apply/apply.html')
+    return render(request,'apply/main.html')
 
 
 def apply_result(request,post_id):
