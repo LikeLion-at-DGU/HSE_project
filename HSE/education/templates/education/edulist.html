@@ -5,6 +5,9 @@
 <section style="margin:0px 30px; margin-top:80px;">
 {%if user.is_authenticated%}
     <h2>봉사 목록</h2>
+    {%if user.is_superuser%}
+        <a href="{%url 'education:new' %}">새 봉사 올리기</a>
+    {%endif%}
     {%for post in posts%}
     <div>
         <a href="{%url 'education:detail' post.id%}"><h3>{{post.title}}</h3></a>
