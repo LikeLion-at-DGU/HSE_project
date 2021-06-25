@@ -27,11 +27,7 @@ def detail(request, id):
     else:
         is_dead = False
 
-    return render(
-        request,
-        "education/detail.html",
-        {"post": post, "author": author, "is_dead": is_dead},
-    )
+    return render(request,"education/detail.html",{"post": post, "author": author, "is_dead": is_dead})
 
 
 def new(request):

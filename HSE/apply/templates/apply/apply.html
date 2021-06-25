@@ -1,28 +1,27 @@
-{% comment %} {% extends 'base.html' %} {% endcomment %}
-{% comment %} {% load static %}
+{% comment %} {% extends 'base.html' %}
+{% load static %}
 
-{% block content %}  {% endcomment %}
+{% block content %} {% endcomment %}
+
+<form action="{%url 'apply:apply_new'%}" method="post" enctype="multipart/form-data" id='app'>
+	{%csrf_token%}
+	<p>강사 신청</p>
+	
+	<p>
+		<label for="main_or_sub">강사 유형: </label>
+		<select name="main_or_sub" id="main_or_sub">
+			<option value="주강사">주강사</option>
+			<option value="보조강사">보조강사</option>
+		</select>
+	</p>
+    <p>신청자 이름: <input type="text" name="name"></p>
+    <p>핸드폰 번호: <input type="number" name="phone_num"></p>
+	<p>봉사명: <input type="text" name="title" value="{{post.title}}"></p>
+ 
+
+	<button type="submit">제출</button>
+</form>
+
+
 {% comment %} 
-<h1>{{post.title}}</h1>
-작성자 : {{post.writer}}
-작성 날짜 : {{post.pub_date}}
-<hr>
-{% if post.video%}
-    <p><img src="{{ post.image.url }}" alt="사진 나올 곳"></p>
-{% endif %}
-{% if post.extra%}
-    <p><img src="{{ post.image.url }}" alt="사진 나올 곳"></p>
-{% endif %}
-<p>{{post.body}}</p> 
-<p>봉사 내용 간략 요약</p> {% endcomment %}
-
-
-
-{% if rn %}
-<a href="{%url 'apply:apply_main' %}" class="btn_post">주강사 신청하기</a>
-<a href="{%url 'apply:apply_sub' %}" class="btn_post">보조강사 신청하기</a>
-{% else %}
-<a href="{%url 'apply:result' post.id %}" class="btn_post">결과 확인하기</a>
-{% endif %}
-{% comment %} {% endblock %} {% endcomment %}
-
+{% endblock %} {% endcomment %}
