@@ -2,21 +2,23 @@
 {% load static %}
 
 {% block content %}
-
+<section style="margin:0px 30px; margin-top:50px;">
 {%if user.is_authenticated%}
-    <h1>봉사 목록</h1>
+    <h2>봉사 목록</h2>
     {%for post in posts%}
     <div>
         <a href="{%url 'education:detail' post.id%}"><h3>{{post.title}}</h3></a>
-	    {{post.writer}}<br>
+	    글쓴이: {{post.writer}}<br>
     </div>
+    <hr>
     {%endfor%}
 
-{%else%}
-<script>
-    alert("로그인 후 이용해주세요");
-    window.location.href="{%url 'account_login'%}"
-</script>
+{%else%} 
+<!-- 로그인 안돼있으면 돌아가 -->
+    <script>
+        alert("로그인 후 이용해주세요");
+        window.location.href="{%url 'account_login'%}"
+    </script>
 {%endif%}
-
+</section>
 {% endblock %}
