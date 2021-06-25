@@ -20,9 +20,17 @@
         <a class="btn" href="{{ post.extrafile.url }}" download>다운로드</a>
     </p>
 {% endif %}
-<a href="{%url 'education:edit' post.id %}" class="btn_post">수정하기</a>
-<a href="{%url 'education:delete' post.id %}" class="btn_post">삭제하기</a>
-<a href="{%url 'apply:apply_detail' post.id %}" class="btn_post">신청하기</a>
+
+{%if author%}
+    <a href="{%url 'education:edit' post.id %}" class="btn_post">수정하기</a>
+    <a href="{%url 'education:delete' post.id %}" class="btn_post">삭제하기</a>
+{%endif%}
+
+{%if is_dead%}
+    <a href="{%url 'apply:apply_main_sub' post.id %}" class="btn_post">신청하기</a>
+{%else%}
+    <a href="{%url 'apply:apply_result' post.id %}" class="btn_post">결과 보기</a>
+{%endif%}
 
 {% endblock %}
 
