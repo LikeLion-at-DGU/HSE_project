@@ -22,21 +22,21 @@
 
 <link href="{% static './main.97292821.css' %}" rel="stylesheet"></head>
 
-<body style="font-family: 'Nanum Gothic Coding', monospace;">
+<body style="font-family: 'Open Sans', sans-serif;">
 
  <!-- Add your content of header -->
 
 
 
 <!-- Add your site or app content here -->
-<div class="background-image-container white-text-container" style="background-color: gray">
+<div class="background-image-container white-text-container" style="background-color: rgb(131, 126, 126)">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1 style="font-family: 'Nanum Gothic Coding', monospace;">Hi-Sw Volunteer Corps</h1>
+                <h1 style="font-family: 'Open Sans', sans-serif;">Hi-Sw Volunteer Corps</h1>
                 <p class="">Dongguk University</p>
-                <a href="#contact-section-container" class="btn btn-primary btn-lg anchor-link" title="">Get in touch</a>
+                <a href="#contact-section-container" class="btn btn-primary btn-lg anchor-link" title="">Contact</a>
             </div>
         </div>
     </div>
@@ -122,7 +122,7 @@
         </div>
     </div>
     <!-- 교육안내 페이지로 감 -->
-    <a href="#" style="float: right;">더보기...</a>
+    <a href="{% url 'education:edulist'%}" style="float: right; font-size: 30px; color: black;">더보기....</a>
 </div>
 
 <div class="">
@@ -159,7 +159,7 @@
         <div class="row">
             <div class="col-xs-12 col-md-offset-2 col-md-8">
                 <div class="section-container-spacer">
-                    <h2 class="text-center">Get in touch</h2>
+                    <h2 class="text-center">Contact</h2>
                 </div>
                 <form action="">
                     <div class="row">
