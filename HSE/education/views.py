@@ -8,6 +8,7 @@ import datetime
 
 def edulist(request):
     post = EduPost.objects.all()
+    post = post.order_by("-pub_date")
     return render(request, "education/edulist.html", {"posts": post})
 
 
@@ -27,7 +28,11 @@ def detail(request, id):
     else:
         is_dead = False
 
-    return render(request,"education/detail.html",{"post": post, "author": author, "is_dead": is_dead})
+    return render(
+        request,
+        "education/detail.html",
+        {"post": post, "author": author, "is_dead": is_dead},
+    )
 
 
 def new(request):
@@ -51,7 +56,12 @@ def create(request):
 
 def edit(request, id):
     edit_post = EduPost.objects.get(id=id)
-    return render(request, "education/edit.html", {"post": edit_post})
+
+    if request.user == edit_post.writer:
+        author = True
+    else:
+        author = False
+    return render(request, "education/edit.html", {"post": edit_post, "author": author})
 
 
 def update(request, id):
