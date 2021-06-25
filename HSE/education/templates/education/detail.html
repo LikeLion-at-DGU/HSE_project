@@ -10,6 +10,9 @@
 {% if post.video%}
     <p><video src="{{ post.video.url }}" controls>설명 영상</video></p>
 {% endif %}
+<p>신청 기한: {{post.due_date}}</p>
+<p>주 강사: {{post.main_teacher}}명</p>
+<p>주 강사: {{post.sub_teacher}}명</p>
 <p>{{post.body}}</p>
 {% if post.extrafile%}
     <p>

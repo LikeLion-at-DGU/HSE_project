@@ -1,12 +1,12 @@
-{% extends 'base.html' %}
+{% comment %} {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+{% block content %} {% endcomment %}
 
 <form action="{% url 'education:update' post.id %}" method="post" enctype="multipart/form-data">
 	{%csrf_token%}
 	<p>제목 : <input type="text" name="title" value="{{post.title}}"></p>
-    <p>마감 날짜: <input type="datetime" name="due_date" value="{{post.due_date}}"></p>
+    <p>마감 날짜: <input type="datetime-local" name="due_date" value="{{post.due_date}}"></p>
     <p>주 강사 수: <input type="number" name="main_teacher" value="{{post.main_teacher}}"></p>
     <p>보조 강사 수: <input type="number" name="sub_teacher" value="{{post.sub_teacher}}"></p>
 	<p>설명 영상 : <input type="file" name="video"></p>
@@ -14,5 +14,4 @@
     <p>추가 첨부파일: <input type="file" name="extrafile"></p>
 	<button type="submit">제출</button>
 </form>
-
-{% endblock %}
+{% comment %} {% endblock %} {% endcomment %}
