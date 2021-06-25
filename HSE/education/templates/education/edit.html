@@ -1,7 +1,8 @@
-{% comment %} {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
-{% block content %} {% endcomment %}
+{% block content %} 
+<section style="margin:0px 30px; margin-top:80px;">
 {%if user.is_superuser and author%}
 	<form action="{% url 'education:update' post.id %}" method="post" enctype="multipart/form-data">
 		{%csrf_token%}
@@ -21,4 +22,5 @@
 		window.location.href="{%url 'education:edulist'%}"
 	</script>
 {%endif%}
-{% comment %} {% endblock %} {% endcomment %}
+</section>
+{% endblock %} 
