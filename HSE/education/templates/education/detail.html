@@ -19,5 +19,7 @@
 {% endif %}
 <a href="{%url 'education:edit' post.id %}" class="btn_post">수정하기</a>
 <a href="{%url 'education:delete' post.id %}" class="btn_post">삭제하기</a>
+<a href="{%url 'apply:apply_detail' post.id %}" class="btn_post">신청하기</a>
+
 {% endblock %}
 
