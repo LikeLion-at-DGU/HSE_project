@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import EduPost
 from django.utils import timezone
 import datetime
-
+from apply.views import get_c
 # Create your views here.
 
 
@@ -51,6 +51,7 @@ def create(request):
     new_post.video = request.FILES.get("video")
     new_post.extrafile = request.FILES.get("extrafile")
     new_post.save()
+    get_c(new_post.id)
     return redirect("education:detail", new_post.id)
 
 
@@ -76,10 +77,12 @@ def update(request, id):
     update_post.video = request.FILES.get("video")
     update_post.extrafile = request.FILES.get("extrafile")
     update_post.save()
+    get_c(update_post.id)
     return redirect("education:detail", update_post.id)
 
 
 def delete(request, id):
     delete_post = EduPost.objects.get(id=id)
     delete_post.delete()
+    get_c(id)
     return redirect("education:edulist")
