@@ -46,6 +46,7 @@ def create(request):
     new_post.writer = request.user
     new_post.pub_date = timezone.now()
     new_post.due_date = request.POST["due_date"]
+    new_post.work_date = request.POST["work_date"]
     new_post.main_teacher = request.POST["main_teacher"]
     new_post.sub_teacher = request.POST["sub_teacher"]
     new_post.work_hour = request.POST["work_hour"]

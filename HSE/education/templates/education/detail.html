@@ -11,6 +11,7 @@
     {% endif %}
     <p>신청 기한: {{post.due_date}}</p>
     <p>주 강사: {{post.main_teacher}}명 / 보조 강사: {{post.sub_teacher}}명</p>
+    <p>봉사 일시: {{post.work_date}}</p>
     <p>인정 봉사 시간: {{post.work_hour}}</p>
     {% if post.image%}
         <p><img src="{{ post.image.url }}" style="width:60%" alt="사진"></p>
