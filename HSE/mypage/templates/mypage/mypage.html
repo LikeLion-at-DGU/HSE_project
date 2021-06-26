@@ -5,52 +5,73 @@
 
 <section style="margin:0px 30px; margin-top:80px;">
   <div class="container">
-      {% if user.is_authenticated %}
-      <h2>
-          {{user.username}}
-      </h2>
-      <div style="width: 300px; height:300px; border:3px solid black; display:inline-block; padding: 10px; margin-left: 240px;">총 봉사활동 시간 : {{myinfo.total_work}}</div>
-      <div style="width: 300px; height:300px; border:3px solid black; display: inline-block; padding: 10px; margin-left: 50px;">총 봉사활동 참여 횟수: {{myinfo.total_count}}</div>
+    {% if user.is_authenticated %}
+    <h2>
+      {{user.username}}
+    </h2>
+    <div
+      style="width: 300px; height:300px; border:3px solid black; display:inline-block; padding: 10px; margin-left: 220px;">
+      <h3>총: {{a}} 시간</h3> <br>
+      봉사활동 시간 :<br> {%for i in myinfo%} {{i.total_work}} 시간<br> {%endfor %}
+
+
+    </div>
+    <div
+      style="width: 300px; height:300px; border:3px solid black; display: inline-block; padding: 10px; margin-left: 50px;">
+      <h3>총: {{b}} 번</h3> <br>
+      봉사활동 참여 횟수:<br> {%for i in myinfo%} {{i.total_count}}<br> {%endfor %}
+
+    </div>
+    <div>
+
+
+      <br>
+      <!-- <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">활동기관명 : </th>
+            <th scope="col">프로그램명</th>
+            <th scope="col">신청일</th>
+            <th scope="col">봉사날짜</th>
+            <th scope="col">봉사시간</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+        </tbody>
+      </table> -->
       <div>
-        <br>
-          <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">활동기관명</th>
-                  <th scope="col">프로그램명</th>
-                  <th scope="col">신청일</th>
-                  <th scope="col">봉사날짜</th>
-                  <th scope="col">봉사시간</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-              </tbody>
-            </table>
+
+        {%for i in myinfo%}
+          {%if i.winner%}
+            {{i.title}}<br>
+          {%endif%}
+        {%endfor %}
       </div>
-  
-  {% else %}
-      <div style="display:block; text-align: center; width:900px;margin: 300px auto; position:relative;">
-          <h3>로그인 후 이용 가능</h3> 
-          <br>
-          <a href="{% url 'account_login' %}" class="btn btn-warning">로그인</a>
-          <a href="{% url 'account_signup' %}" class="btn btn-warning">회원가입</a>
-      </div>
-      
-  {% endif %}
-  
+    </div>
+
+    {% else %}
+    <div style="display:block; text-align: center; width:900px;margin: 300px auto; position:relative;">
+      <h3>로그인 후 이용 가능</h3>
+      <br>
+      <a href="{% url 'account_login' %}" class="btn btn-warning">로그인</a>
+      <a href="{% url 'account_signup' %}" class="btn btn-warning">회원가입</a>
+    </div>
+
+    {% endif %}
+
   </div>
 </section>
 {% endblock %}

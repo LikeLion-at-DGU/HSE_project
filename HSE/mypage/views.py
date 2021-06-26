@@ -7,7 +7,13 @@ from django.contrib.auth.models import User
 def mypage(request):
     
     user=request.user
+    a=0
+    b=0
+    myinfo=apply.objects.filter(applicant=user)
+    for i in myinfo:
+        a+=int(i.total_work)
     
-    myinfo=apply.objects.get(applicant=user)
-
-    return render(request, 'mypage/mypage.html', {'myinfo':myinfo})
+    for i in myinfo:
+        b+=int(i.total_count)
+    
+    return render(request, 'mypage/mypage.html', {'myinfo':myinfo,'a':a,'b':b})
