@@ -1,19 +1,37 @@
-{% comment %} {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
-{% block content %} {% endcomment %}
+{% block content %}
 
-{% for i in main %}
+<section style="margin:0px 30px; margin-top:80px;">
+<div  style="background-size:100%; height:400px; display:flex; justify-content:space-around;" >
+    
+    <div style="width:30%;  padding-top:50px;">
+        <p><h3><b>선택된 주 강사</b></h3></p>
+        <br>
+        {% for i in main %}
+            봉사명 : {{i.title}} <br>
+            주 강사 : {{i.name}} <br>
+            번호(뒤 4자리) : {{i.phone_num}}
 
-    선택된주강사 : {{i.name}} {{i.phone_num}}
-    <br>
-{% endfor %} 
+            <br>
+            <br>
+        {% endfor %} 
+    </div>
+    
+    <div style="width:30%;  padding-top:50px; ">
+        <p><h3><b>선택된 보조 강사</b></h3></p>
+        <br>
+        {% for i in sub %}
+        봉사명 : {{i.title}} <br>
+        보조 강사 : {{i.name}}  <br>
+        번호(뒤 4자리) : {{i.phone_num}}
+        <br>
+        <br>
+        {% endfor %}
+    </div>
+</div>
+</section>
 
-{% for i in sub %}
 
-    선택된보조강사 : {{i.name}} {{i.phone_num}}
-    <br>
-{% endfor %} 
-
-{% comment %} 
-{% endblock %} {% endcomment %}
+{% endblock %}

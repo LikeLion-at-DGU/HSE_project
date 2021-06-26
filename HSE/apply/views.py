@@ -24,7 +24,7 @@ def apply_new(request):
     if t:
         new_apply = apply()
         new_apply.name = request.POST["name"]
-        new_apply.phone_num = request.POST["phone_num"]
+        new_apply.phone_num = request.POST["phone_num"][-4:]
         new_apply.title=request.POST['title']
         new_apply.main_or_sub=request.POST['main_or_sub']
         new_apply.applicant = request.user
@@ -56,10 +56,10 @@ def apply_result(request,post_id):
         for i in t:
             if i.main_or_sub == '주강사':
                 m.append(i)
-                print(i.name,'hi')
+                # print(i.name,'hi')
             else:
                 s.append(i)
-                print(i.name,'hii')
+                # print(i.name,'hii')
 
         if post.main_teacher < len(m): 
             m=random.sample(m,post.main_teacher) #아니면 다뽑음 
@@ -67,10 +67,10 @@ def apply_result(request,post_id):
             i.winner='winner'
             i.save()
             
-        print('len길이m',len(m))
+        # print('len길이m',len(m))
         if post.sub_teacher < len(s): 
             s=random.sample(s,post.sub_teacher)  #아니면다뽑음
-        print('len길이s',len(s))
+        # print('len길이s',len(s))
         for i in s:
             i.winner='winner'
             i.save()

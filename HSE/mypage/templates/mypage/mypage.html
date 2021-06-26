@@ -42,20 +42,21 @@
                 <td>{{mypage.date}}</td>
                 <td>{{mypage.hour}}</td>
               </tr>
-              {% endfor %}
+                {% endfor %}
             </tbody>
           </table>
     </div>
 
-{% else %}
-    <div style="display:block; text-align: center; width:900px;margin: 300px auto; position:relative;">
-        <h3>로그인 후 이용 가능</h3> 
-        <br>
-        <a href="{% url 'account_login' %}" class="btn btn-warning">로그인</a>
-        <a href="{% url 'account_signup' %}" class="btn btn-warning">회원가입</a>
-    </div>
-    
-{% endif %}
-
-</div>
+    {% else %}
+      <div style="display:block; text-align: center; width:900px;margin: 300px auto; position:relative;">
+          <h3>로그인 후 이용 가능</h3> 
+          <br>
+          <a href="{% url 'account_login' %}" class="btn btn-warning">로그인</a>
+          <a href="{% url 'account_signup' %}" class="btn btn-warning">회원가입</a>
+      </div>
+      
+    {% endif %}
+  
+  </div>
+</section>
 {% endblock %}
