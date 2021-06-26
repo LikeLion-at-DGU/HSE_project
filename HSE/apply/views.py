@@ -38,9 +38,6 @@ def apply_new(request):
         return render(request,'apply/alert.html')
     
     
-
-
-
 def apply_result(request,post_id):
     post=get_object_or_404(EduPost,pk=post_id)
     apply_o=apply.objects.all()
