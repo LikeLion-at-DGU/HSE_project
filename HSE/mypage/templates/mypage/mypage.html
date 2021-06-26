@@ -2,41 +2,47 @@
 {% load static %}
 
 {% block content %}
-
-<div class="container">
+<div class="container" style="margin-top: 7%;">
     {% if user.is_authenticated %}
     <h2>
         {{user.username}}
     </h2>
-    <div style="width: 30%; padding-bottom: 25%; border:3px solid black; display:inline-block;  position: relative; margin-left: 15%;">총 봉사활동 시간</div>
-    <div style="width: 30%; padding-bottom: 25%; border:3px solid black; display: inline-block; position: relative; margin-left: 5%;">총 봉사활동 참여 횟수</div>
+    <br>
+    <div class="box">
+    <div style="width: 25%; padding-bottom: 3%; border:3px solid black; display:inline-block;  position: relative; margin-left: 25%; padding-top: 5%; text-align: center; font-size: 1.7vw;">총 봉사활동 시간
+    <br>
+    <p style="font-weight: bold; font-family:Roboto; font-size:4.5vw; text-align: center;">{{mypage.total_time}}</p>
+    </div>
+    <div style="width: 25%; padding-bottom: 3%; border:3px solid black; display: inline-block; position: relative; margin-left: 5%; padding-top: 5%; text-align: center; font-size: 1.7vw;">총 봉사 참여 횟수
+    <br>
+    <p style="font-weight: bold; font-family:Roboto; font-size:4.5vw; text-align: center;">{{mypage.total_count}}</p>
+    </div>
+    <hr style="margin-left:17%; width: 70%;">
+    </div>
     <div>
+      <br>
+      <br>
       <br>
         <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">활동기관명</th>
                 <th scope="col">프로그램명</th>
-                <th scope="col">신청일</th>
+                <th scope="col">봉사유형</th>
                 <th scope="col">봉사날짜</th>
                 <th scope="col">봉사시간</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                {% %}
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                {% for mypage in mypage %}
+                <th scope="row">{{mypage.pk}}</th>
+                <td>{{mypage.title}} </td>
+                <td>{{mypage.type}}</td>
+                <td>{{mypage.date}}</td>
+                <td>{{mypage.hour}}</td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
+              {% endfor %}
             </tbody>
           </table>
     </div>
