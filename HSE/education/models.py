@@ -8,6 +8,7 @@ class EduPost(models.Model):
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
     pub_date = models.DateTimeField()
     due_date = models.DateTimeField()
+    work_date = models.DateTimeField()
     main_teacher = models.IntegerField()
     sub_teacher = models.IntegerField()
     work_hour = models.IntegerField()
@@ -15,3 +16,4 @@ class EduPost(models.Model):
     video = models.FileField(upload_to="videos_uploaded", null=True)
     extrafile = models.FileField(upload_to="extrafiles/", null=True)
     count=models.IntegerField(default=0)
+    
