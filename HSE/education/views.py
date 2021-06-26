@@ -54,7 +54,7 @@ def create(request):
     new_post.video = request.FILES.get("video")
     new_post.extrafile = request.FILES.get("extrafile")
     new_post.save()
-    
+   
     return redirect("education:detail", new_post.id)
 
 
@@ -88,7 +88,7 @@ def update(request, id):
             i.save()
     update_post.save()
     
-    
+
     return redirect("education:detail", update_post.id)
 
 

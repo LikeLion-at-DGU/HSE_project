@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from main.models import Post
+from apply.models import apply
 from django.contrib.auth.models import User
 
 from .models import Profile
@@ -10,6 +11,7 @@ from django.db.models import Sum, Count
 
 def mypage(request):
     user = request.user
+    myinfo=apply.objects.get(applicant=user)
     #posts=Post.objects.filter(writer=user)
     apply_title = request.apply['title', '']
     result1 = apply.objects.filter(winner=user)
@@ -24,4 +26,4 @@ def mypage(request):
     #result1.title = apply.objects.filter('title')
     #result2.date = EduPost.objects.filter('work_date')
     #result2.hour = EduPost.objects.filter('work_hour')
-    return render(request, 'mypage/mypage.html', {'result1':result1, 'result2':result2})
+    return render(request, 'mypage/mypage.html', {'myinfo':myinfo, 'result1':result1, 'result2':result2})

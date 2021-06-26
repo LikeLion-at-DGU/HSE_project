@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+<section style="margin:0px 30px; margin-top:80px;">
 <div class="container" style="margin-top: 7%;">
     {% if user.is_authenticated %}
     <h2>
@@ -11,11 +12,11 @@
     <div class="box">
     <div style="width: 25%; padding-bottom: 3%; border:3px solid black; display:inline-block;  position: relative; margin-left: 25%; padding-top: 5%; text-align: center; font-size: 1.7vw;">총 봉사활동 시간
     <br>
-    <p style="font-weight: bold; font-family:Roboto; font-size:4.5vw; text-align: center;">{{mypage.total_time}}</p>
+    <p style="font-weight: bold; font-family:Roboto; font-size:4.5vw; text-align: center;">{{myinfo.total_work}}</p>
     </div>
     <div style="width: 25%; padding-bottom: 3%; border:3px solid black; display: inline-block; position: relative; margin-left: 5%; padding-top: 5%; text-align: center; font-size: 1.7vw;">총 봉사 참여 횟수
     <br>
-    <p style="font-weight: bold; font-family:Roboto; font-size:4.5vw; text-align: center;">{{mypage.total_count}}</p>
+    <p style="font-weight: bold; font-family:Roboto; font-size:4.5vw; text-align: center;">{{myinfo.total_count}}</p>
     </div>
     <hr style="margin-left:17%; width: 70%;">
     </div>
@@ -46,8 +47,8 @@
             </tbody>
           </table>
     </div>
-
-    {% else %}
+  
+  {% else %}
       <div style="display:block; text-align: center; width:900px;margin: 300px auto; position:relative;">
           <h3>로그인 후 이용 가능</h3> 
           <br>

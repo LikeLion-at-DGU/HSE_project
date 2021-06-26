@@ -12,7 +12,9 @@
         {% for i in main %}
             봉사명 : {{i.title}} <br>
             주 강사 : {{i.name}} <br>
-            번호(뒤 4자리) : {{i.phone_num}}
+            번호(뒤 4자리) : {{i.phone_num}} <br>
+            id : {{i.applicant}}
+            
 
             <br>
             <br>
@@ -26,6 +28,7 @@
         봉사명 : {{i.title}} <br>
         보조 강사 : {{i.name}}  <br>
         번호(뒤 4자리) : {{i.phone_num}}
+        id : {{i.applicant}}
         <br>
         <br>
         {% endfor %}
