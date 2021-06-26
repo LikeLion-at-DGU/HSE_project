@@ -11,7 +11,8 @@
     {% endif %}
     <p>신청 기한: {{post.due_date}}</p>
     <p>주 강사: {{post.main_teacher}}명 / 보조 강사: {{post.sub_teacher}}명</p>
-    <p>{{post.body}}</p>
+    <p>인정 봉사 시간: {{post.work_hour}}</p>
+    <p><pre>{{post.body}}</pre></p>
     {% if post.extrafile%}
         <p>
             첨부파일: {{post.extrafile.name}}
