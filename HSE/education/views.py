@@ -48,6 +48,7 @@ def create(request):
     new_post.due_date = request.POST["due_date"]
     new_post.main_teacher = request.POST["main_teacher"]
     new_post.sub_teacher = request.POST["sub_teacher"]
+    new_post.work_hour = request.POST["work_hour"]
     new_post.body = request.POST["body"]
     new_post.video = request.FILES.get("video")
     new_post.extrafile = request.FILES.get("extrafile")
@@ -75,6 +76,7 @@ def update(request, id):
     update_post.due_date = request.POST["due_date"]
     update_post.main_teacher = request.POST["main_teacher"]
     update_post.sub_teacher = request.POST["sub_teacher"]
+    update_post.work_hour = request.POST["work_hour"]
     update_post.body = request.POST["body"]
     update_post.video = request.FILES.get("video")
     update_post.extrafile = request.FILES.get("extrafile")
