@@ -13,3 +13,4 @@ class EduPost(models.Model):
     body = models.TextField()
     video = models.FileField(upload_to="videos_uploaded", null=True)
     extrafile = models.FileField(upload_to="extrafiles/", null=True)
+    count=models.IntegerField(default=0)
