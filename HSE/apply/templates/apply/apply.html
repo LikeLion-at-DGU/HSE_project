@@ -1,26 +1,27 @@
-{% comment %} {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
-{% block content %} {% endcomment %}
-
-<form action="{%url 'apply:apply_new'%}" method="post" enctype="multipart/form-data" id='app'>
-	{%csrf_token%}
-	<p>강사 신청</p>
+{% block content %} 
+<section style="margin:0px 30px; margin-top:80px;">
+	<form action="{%url 'apply:apply_new'%}" method="post" enctype="multipart/form-data" id='app'>
+		{%csrf_token%}
+		<p>강사 신청</p>
+		
+		<p>
+			<label for="main_or_sub">강사 유형: </label>
+			<select name="main_or_sub" id="main_or_sub">
+				<option value="주강사">주강사</option>
+				<option value="보조강사">보조강사</option>
+			</select>
+		</p>
+	    <p>신청자 이름: <input type="text" name="name"></p>
+	    <p>핸드폰 번호: <input type="number" name="phone_num"></p>
+		<p>봉사명: <input type="text" name="title" value="{{post.title}}" readonly></p>
 	
-	<p>
-		<label for="main_or_sub">강사 유형: </label>
-		<select name="main_or_sub" id="main_or_sub">
-			<option value="주강사">주강사</option>
-			<option value="보조강사">보조강사</option>
-		</select>
-	</p>
-    <p>신청자 이름: <input type="text" name="name"></p>
-    <p>핸드폰 번호: <input type="number" name="phone_num"></p>
-	<p>봉사명: <input type="text" name="title" value="{{post.title}}" readonly></p>
+	
+		<button type="submit">제출</button>
+	</form>
+</section>
 
 
-	<button type="submit">제출</button>
-</form>
-
-{% comment %} 
-{% endblock %} {% endcomment %}
+{% endblock %} 

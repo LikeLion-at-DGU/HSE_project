@@ -1,19 +1,21 @@
-{% comment %} {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
-{% block content %} {% endcomment %}
+{% block content %}
 
-{% for i in main %}
+<section style="margin:0px 30px; margin-top:80px;">
+    {% for i in main %}
+    
+        선택된주강사 : {{i.name}} {{i.phone_num}}
+        <br>
+    {% endfor %} 
+    
+    {% for i in sub %}
+    
+        선택된보조강사 : {{i.name}} {{i.phone_num}}
+        <br>
+    {% endfor %} 
+</section>
 
-    선택된주강사 : {{i.name}} {{i.phone_num}}
-    <br>
-{% endfor %} 
 
-{% for i in sub %}
-
-    선택된보조강사 : {{i.name}} {{i.phone_num}}
-    <br>
-{% endfor %} 
-
-{% comment %} 
-{% endblock %} {% endcomment %}
+{% endblock %}
