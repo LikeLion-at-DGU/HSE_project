@@ -9,6 +9,4 @@ urlpatterns = [
     path('apply_sub/',views.apply_sub, name="apply_sub"),
     path('apply_new/',views.apply_new, name="apply_new"),
     path('apply_result/<int:id>',views.apply_result, name="apply_result"),
-    
-
 ]
