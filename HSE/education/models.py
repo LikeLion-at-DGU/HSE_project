@@ -13,7 +13,7 @@ class EduPost(models.Model):
     sub_teacher = models.IntegerField()
     work_hour = models.IntegerField()
     body = models.TextField()
-    video = models.FileField(upload_to="videos_uploaded", null=True)
+    video = models.CharField(null=True, max_length=200)
+    image = models.FileField(upload_to="image/", null=True)
     extrafile = models.FileField(upload_to="extrafiles/", null=True)
     count=models.IntegerField(default=0)
-    
