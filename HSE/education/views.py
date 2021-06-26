@@ -51,10 +51,13 @@ def create(request):
     new_post.sub_teacher = request.POST["sub_teacher"]
     new_post.work_hour = request.POST["work_hour"]
     new_post.body = request.POST["body"]
-    new_post.video = request.FILES.get("video")
+    new_post.video = request.POST["video"].replace("watch?v=", "embed/")
+    if "&" in new_post.video:
+        new_post.video = new_post.video[: new_post.video.index("&")]
     new_post.extrafile = request.FILES.get("extrafile")
+    new_post.image = request.FILES.get("image")
     new_post.save()
-   
+
     return redirect("education:detail", new_post.id)
 
 
@@ -69,7 +72,7 @@ def edit(request, id):
 
 
 def update(request, id):
-    ap_all=apply.objects.all()
+    ap_all = apply.objects.all()
     update_post = EduPost.objects.get(id=id)
     update_post.title = request.POST["title"]
     update_post.writer = request.user
@@ -79,15 +82,17 @@ def update(request, id):
     update_post.sub_teacher = request.POST["sub_teacher"]
     update_post.work_hour = request.POST["work_hour"]
     update_post.body = request.POST["body"]
-    update_post.video = request.FILES.get("video")
+    update_post.video = request.POST["video"].replace("watch?v=", "embed/")
+    if "&" in update_post.video:
+        update_post.video = update_post.video[: update_post.video.index("&")]
     update_post.extrafile = request.FILES.get("extrafile")
-    update_post.count=0
+    update_post.image = request.FILES.get("image")
+    update_post.count = 0
     for i in ap_all:
         if i.title == update_post.title:
-            i.winner=''
+            i.winner = ""
             i.save()
     update_post.save()
-    
 
     return redirect("education:detail", update_post.id)
 
