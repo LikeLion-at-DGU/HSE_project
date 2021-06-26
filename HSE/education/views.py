@@ -1,18 +1,38 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import EduPost
 from django.utils import timezone
+import datetime
 
 # Create your views here.
 
 
 def edulist(request):
     post = EduPost.objects.all()
+    post = post.order_by("-pub_date")
     return render(request, "education/edulist.html", {"posts": post})
 
 
 def detail(request, id):
     post = get_object_or_404(EduPost, pk=id)
-    return render(request, "education/detail.html", {"post": post})
+
+    if request.user == post.writer:
+        author = True
+    else:
+        author = False
+
+    cmp = datetime.datetime.now()
+    cmp = cmp.strftime("%y-%m-%d %H:%M:%S")
+    cmp = datetime.datetime.strptime(cmp, "%y-%m-%d %H:%M:%S")
+    if post.due_date >= cmp:
+        is_dead = True
+    else:
+        is_dead = False
+
+    return render(
+        request,
+        "education/detail.html",
+        {"post": post, "author": author, "is_dead": is_dead},
+    )
 
 
 def new(request):
@@ -36,7 +56,12 @@ def create(request):
 
 def edit(request, id):
     edit_post = EduPost.objects.get(id=id)
-    return render(request, "education/edit.html", {"post": edit_post})
+
+    if request.user == edit_post.writer:
+        author = True
+    else:
+        author = False
+    return render(request, "education/edit.html", {"post": edit_post, "author": author})
 
 
 def update(request, id):
@@ -57,4 +82,4 @@ def update(request, id):
 def delete(request, id):
     delete_post = EduPost.objects.get(id=id)
     delete_post.delete()
-    return redirect("main:showMain")
+    return redirect("education:edulist")

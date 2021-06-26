@@ -1,21 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
-
-<form action="{%url 'education:create'%}" method="post" enctype="multipart/form-data">
-	{%csrf_token%}
-	<p>제목 : <input type="text" name="title" required></p>
-    <p>마감 날짜: <input type="date" name="due_date" id='currentDate' required></p>
-    <p>주 강사 수: <input type="number" name="main_teacher" min="0" required></p>
-    <p>보조 강사 수: <input type="number" name="sub_teacher" min="0" required></p>
-	<p>설명 영상 : <input type="file" name="video"></p>
-	<p>내용 : <textarea type="text" name="body" id="" cols="150" rows="50"></textarea></p>
-    <p>추가 첨부파일: <input type="file" name="extrafile"></p>
-	<button type="submit">제출</button>
-</form>
-
-<script>
-	document.getElementById('currentDate').min = new Date().toISOString().substring(0, 10);;
-</script>
-{% endblock %}
+{% block content %} 
+<section style="margin:0px 30px; margin-top:80px;">
+{%if user.is_superuser%}
+	<form action="{%url 'education:create'%}" method="post" enctype="multipart/form-data">
+		{%csrf_token%}
+		<p>제목 : <input type="text" name="title" required></p>
+		<p>마감 날짜: <input type="datetime-local" name="due_date" id='currentDate' required></p>
+		<p>주 강사 수: <input type="number" name="main_teacher" min="0" required></p>
+		<p>보조 강사 수: <input type="number" name="sub_teacher" min="0" required></p>
+		<p>설명 영상 : <input type="file" name="video"></p>
+		<p>내용 : <textarea type="text" name="body" id="" cols="150" rows="50"></textarea></p>
+		<p>추가 첨부파일: <input type="file" name="extrafile"></p>
+		<button type="submit">제출</button>
+	</form>
+	<script>
+		document.getElementById('currentDate').min = new Date().toISOString().substring(0, 10);;
+	</script>
+{%else%}
+	<!-- 괸라자 아니면 나가 -->
+	<script>
+		alert("권한이 없습니다.");
+		window.location.href="{%url 'education:edulist'%}"
+	</script>
+{%endif%}
+</section>
+{% endblock %} 

@@ -2,22 +2,33 @@
 {% load static %}
 
 {% block content %}
+<section style="margin:0px 30px; margin-top:80px;">
+    <h2>{{post.title}}</h2>
+    <p>작성자 : {{post.writer}} / 작성 날짜 : {{post.pub_date}}</p>
+    <hr>
+    {% if post.video%}
+        <p><video src="{{ post.video.url }}" controls>설명 영상</video></p>
+    {% endif %}
+    <p>신청 기한: {{post.due_date}}</p>
+    <p>주 강사: {{post.main_teacher}}명 / 보조 강사: {{post.sub_teacher}}명</p>
+    <p>{{post.body}}</p>
+    {% if post.extrafile%}
+        <p>
+            첨부파일: {{post.extrafile.name}}
+            <a class="btn" href="{{ post.extrafile.url }}" download>다운로드</a>
+        </p>
+    {% endif %}
 
-<h1>{{post.title}}</h1>
-작성자 : {{post.writer}}
-작성 날짜 : {{post.pub_date}}
-<hr>
-{% if post.video%}
-    <p><video src="{{ post.video.url }}" controls>설명 영상</video></p>
-{% endif %}
-<p>{{post.body}}</p>
-{% if post.extrafile%}
-    <p>
-        첨부파일: {{post.extrafile.name}}
-        <a class="btn" href="{{ post.extrafile.url }}" download>다운로드</a>
-    </p>
-{% endif %}
-<a href="{%url 'education:edit' post.id %}" class="btn_post">수정하기</a>
-<a href="{%url 'education:delete' post.id %}" class="btn_post">삭제하기</a>
+    {%if author%}
+        <a href="{%url 'education:edit' post.id %}" class="btn_post">수정하기</a>
+        <a href="{%url 'education:delete' post.id %}" class="btn_post">삭제하기</a>
+    {%endif%}
+
+    {%if is_dead%}
+        <a href="{%url 'apply:apply_main_sub' post.id %}" class="btn_post">신청하기</a>
+    {%else%}
+        <a href="{%url 'apply:apply_result' post.id %}" class="btn_post">결과 보기</a>
+    {%endif%}
+</section>
 {% endblock %}
 

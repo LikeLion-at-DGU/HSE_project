@@ -1,18 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
-
-<form action="{% url 'education:update' post.id %}" method="post" enctype="multipart/form-data">
-	{%csrf_token%}
-	<p>제목 : <input type="text" name="title" value="{{post.title}}"></p>
-    <p>마감 날짜: <input type="datetime" name="due_date" value="{{post.due_date}}"></p>
-    <p>주 강사 수: <input type="number" name="main_teacher" value="{{post.main_teacher}}"></p>
-    <p>보조 강사 수: <input type="number" name="sub_teacher" value="{{post.sub_teacher}}"></p>
-	<p>설명 영상 : <input type="file" name="video"></p>
-	<p>내용 : <textarea type="text" name="body" id="" cols="150" rows="50">{{post.body}}</textarea></p>
-    <p>추가 첨부파일: <input type="file" name="extrafile"></p>
-	<button type="submit">제출</button>
-</form>
-
-{% endblock %}
+{% block content %} 
+<section style="margin:0px 30px; margin-top:80px;">
+{%if user.is_superuser and author%}
+	<form action="{% url 'education:update' post.id %}" method="post" enctype="multipart/form-data">
+		{%csrf_token%}
+		<p>제목 : <input type="text" name="title" value="{{post.title}}" required></p>
+		<p>마감 날짜: <input type="datetime-local" name="due_date" value="{{post.due_date}}" required></p>
+		<p>주 강사 수: <input type="number" name="main_teacher" value="{{post.main_teacher}}" required></p>
+		<p>보조 강사 수: <input type="number" name="sub_teacher" value="{{post.sub_teacher}}" required></p>
+		<p>설명 영상 : <input type="file" name="video"></p>
+		<p>내용 : <textarea type="text" name="body" id="" cols="150" rows="50">{{post.body}}</textarea></p>
+		<p>추가 첨부파일: <input type="file" name="extrafile"></p>
+		<button type="submit">제출</button>
+	</form>
+{%else%}
+	<!-- 괸라자 아니거나 글 쓴 사람 아니면 나가 -->
+	<script>
+		alert("권한이 없습니다.");
+		window.location.href="{%url 'education:edulist'%}"
+	</script>
+{%endif%}
+</section>
+{% endblock %} 

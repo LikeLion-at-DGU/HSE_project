@@ -1,13 +1,19 @@
-{% extends 'base.html' %}
+{% comment %} {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+{% block content %} {% endcomment %}
 
-{% for i in main_l %}
+{% for i in main %}
 
-    선택된 봉사자 : {{i.name}} {{i.phone_num}}
+    선택된주강사 : {{i.name}} {{i.phone_num}}
     <br>
 {% endfor %} 
 
+{% for i in sub %}
 
-{% endblock %}
+    선택된보조강사 : {{i.name}} {{i.phone_num}}
+    <br>
+{% endfor %} 
+
+{% comment %} 
+{% endblock %} {% endcomment %}
