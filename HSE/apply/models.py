@@ -9,10 +9,9 @@ class apply(models.Model):
     phone_num= models.CharField(max_length=11)
     title=models.CharField(max_length=200)
     main_or_sub = models.CharField(max_length=10)
+    winner=models.CharField(max_length=10, default='')
     
-    # count = models.IntegerField(default=0) 인스턴스변수로 개개인 카운트할지 생각해보기
+    # def __str__(self):
+    #     return self.applicant
 
-    def __str__(self):
-        return self.applicant
 
-    
