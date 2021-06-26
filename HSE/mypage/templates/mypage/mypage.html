@@ -8,57 +8,51 @@
     <h2>
       {{user.username}}
     </h2>
-    <div
-      style="width: 300px; height:300px; border:3px solid black; display:inline-block; padding: 10px; margin-left: 220px;">
-      <h3>총: {{a}} 시간</h3> <br>
-      봉사활동 시간 :<br> {%for i in myinfo%} {{i.total_work}} 시간<br> {%endfor %}
+    <br>
+    <div style="width: 25%; padding-bottom: 3%; border:3px solid black; display:inline-block;  position: relative; margin-left: 25%; padding-top: 5%; text-align: center; font-size: 1.7vw;">
+      총 봉사활동 시간 <br>
+      <p style="font-weight: bold; font-family:Roboto; font-size:4.5vw; text-align: center; display: inline-block">
+      {{a}}  </p> <p style="font-size:1.7vw; display: inline-block;">시간</p>
 
 
     </div>
-    <div
-      style="width: 300px; height:300px; border:3px solid black; display: inline-block; padding: 10px; margin-left: 50px;">
-      <h3>총: {{b}} 번</h3> <br>
-      봉사활동 참여 횟수:<br> {%for i in myinfo%} {{i.total_count}}<br> {%endfor %}
+    <div style="width: 25%; padding-bottom: 3%; border:3px solid black; display: inline-block; position: relative; margin-left: 5%; padding-top: 5%; text-align: center; font-size: 1.7vw;">
+      총 봉사 참여 횟수 <br> 
+      <p style="font-weight: bold; font-family:Roboto; font-size:4.5vw; text-align: center; display: inline-block">
+      {{b}}  </p> <p style="font-size:1.7vw; display: inline-block;">번</p>
 
     </div>
+    <hr style="margin-left:17%; width: 70%;">
     <div>
-
-
-      <br>
-      <!-- <table class="table">
+      <br><br><br>
+      <table class="table">
         <thead>
-          <tr>
+          <tr style="font-size:1.3vw;">
             <th scope="col">#</th>
-            <th scope="col">활동기관명 : </th>
             <th scope="col">프로그램명</th>
-            <th scope="col">신청일</th>
-            <th scope="col">봉사날짜</th>
+            <th scope="col">봉사유형</th>
+            <th scope="col">봉사일시</th>
             <th scope="col">봉사시간</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            {%for i in myinfo%}
+          <tr style="font-size:1.2vw;">
+            <th scope="row">{{i.pk}}</th>
+            <td>{%if i.winner%}
+                {{i.title}}
+                {%endif%}</td>
+            <td>{{i.main_or_sub}}</td>
+            <td>{%for j in post %} 
+                  {%if j.title == i.title %}
+                    {{j.work_date}}
+                  {%endif%}
+                {%endfor%}</td>
+            <td>{{i.total_work}} 시간</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
+            {% endfor %}
         </tbody>
-      </table> -->
-      <div>
-
-        {%for i in myinfo%}
-          {%if i.winner%}
-            {{i.title}}<br>
-          {%endif%}
-        {%endfor %}
-      </div>
+      </table>
     </div>
 
     {% else %}
