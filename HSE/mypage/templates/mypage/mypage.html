@@ -28,7 +28,7 @@
       <table class="table">
         <thead>
           <tr style="font-size:1.3vw;">
-            <th scope="col">#</th>
+            <th scope="col"></th>
             <th scope="col">프로그램명</th>
             <th scope="col">봉사유형</th>
             <th scope="col">봉사일시</th>
@@ -38,10 +38,9 @@
         <tbody>
             {%for i in myinfo%}
           <tr style="font-size:1.2vw;">
-            <th scope="row">{{i.pk}}</th>
-            <td>{%if i.winner%}
-                {{i.title}}
-                {%endif%}</td>
+              {%if i.winner%}
+            <th scope="row"><li></li></th>
+            <td>{{i.title}}</td>
             <td>{{i.main_or_sub}}</td>
             <td>{%for j in post %} 
                   {%if j.title == i.title %}
@@ -50,6 +49,7 @@
                 {%endfor%}</td>
             <td>{{i.total_work}} 시간</td>
           </tr>
+              {%endif%}
             {% endfor %}
         </tbody>
       </table>

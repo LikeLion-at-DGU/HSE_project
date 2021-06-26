@@ -17,5 +17,4 @@ def mypage(request):
     
     for i in myinfo:
         b+=int(i.total_count)
-    
     return render(request, 'mypage/mypage.html', {'myinfo':myinfo,'a':a,'b':b, 'post':post})
