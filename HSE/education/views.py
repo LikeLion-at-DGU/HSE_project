@@ -54,6 +54,7 @@ def create(request):
     if "&" in new_post.video:
         new_post.video = new_post.video[: new_post.video.index("&")]
     new_post.extrafile = request.FILES.get("extrafile")
+    new_post.image = request.FILES.get("image")
     new_post.save()
 
     return redirect("education:detail", new_post.id)
@@ -84,6 +85,7 @@ def update(request, id):
     if "&" in update_post.video:
         update_post.video = update_post.video[: update_post.video.index("&")]
     update_post.extrafile = request.FILES.get("extrafile")
+    update_post.image = request.FILES.get("image")
     update_post.count = 0
     for i in ap_all:
         if i.title == update_post.title:
