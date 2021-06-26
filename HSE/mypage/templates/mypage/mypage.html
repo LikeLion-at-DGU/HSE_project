@@ -35,12 +35,12 @@
             </thead>
             <tbody>
               <tr>
-                {% for mypage in mypage %}
-                <th scope="row">{{mypage.pk}}</th>
-                <td>{{mypage.title}} </td>
-                <td>{{mypage.type}}</td>
-                <td>{{mypage.date}}</td>
-                <td>{{mypage.hour}}</td>
+                {% for result1 in result1 %}
+                <th scope="row">{{result1.pk}}</th>
+                <td>{{result1.title}} </td>
+                <td>{{result1.main_or_sub}}</td>
+                <td>{{result2.work_date}}</td>
+                <td>{{result2.work_hour}}</td>
               </tr>
                 {% endfor %}
             </tbody>
