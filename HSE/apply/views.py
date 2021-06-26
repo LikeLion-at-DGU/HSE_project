@@ -28,10 +28,13 @@ def apply_new(request):
         new_apply.title=request.POST['title']
         new_apply.main_or_sub=request.POST['main_or_sub']
         new_apply.applicant = request.user
+        
         new_apply.save()
+        
+        
         return redirect('education:edulist')
     else:
-        print("hi")
+        # print("hi")
         return render(request,'apply/alert.html')
     
     
@@ -65,6 +68,8 @@ def apply_result(request,post_id):
             m=random.sample(m,post.main_teacher) #아니면 다뽑음 
         for i in m:
             i.winner='winner'
+            i.total_work+=post.work_hour
+            i.total_count+=1
             i.save()
             
         # print('len길이m',len(m))
@@ -73,6 +78,8 @@ def apply_result(request,post_id):
         # print('len길이s',len(s))
         for i in s:
             i.winner='winner'
+            i.total_work+=post.work_hour
+            i.total_count+=1
             i.save()
             
         
@@ -83,10 +90,12 @@ def apply_result(request,post_id):
             if i.main_or_sub == "주강사":
                 if i.winner=='winner':
                     # print(i.name,i.winner,'m')
+                    
                     main_l.append(i)
             else:
                 if i.winner=='winner':
                     # print(i.name,i.winner,'s')
+                    
                     sub_l.append(i)
    
 

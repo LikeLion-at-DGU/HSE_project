@@ -10,7 +10,8 @@ class apply(models.Model):
     title=models.CharField(max_length=200)
     main_or_sub = models.CharField(max_length=10)
     winner=models.CharField(max_length=10, default='')
-    
+    total_work= models.IntegerField(default=0)
+    total_count=models.IntegerField(default=0)
     # def __str__(self):
     #     return self.applicant
 
