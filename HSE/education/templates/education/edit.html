@@ -11,7 +11,7 @@
 		<p>주 강사 수: <input type="number" name="main_teacher" value="{{post.main_teacher}}" required></p>
 		<p>보조 강사 수: <input type="number" name="sub_teacher" value="{{post.sub_teacher}}" required></p>
 		<p>인정 봉사 시간 : <input type="number" name="work_hour" value="{{post.work_hour}}" required></p>
-		<p>설명 영상 : <input type="file" name="video"></p>
+		<p>설명 영상 : <input type="text" name="video" value="{{post.video}}"> (해당 동영상 유튜브 페이지 url 적어주세요)</p>
 		<p>내용 : <textarea type="text" name="body" id="" cols="150" rows="50">{{post.body}}</textarea></p>
 		<p>추가 첨부파일: <input type="file" name="extrafile"></p>
 		<button type="submit">제출</button>
