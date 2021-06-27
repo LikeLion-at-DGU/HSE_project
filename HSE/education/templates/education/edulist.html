@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block content %}
-<section style="margin:0px 200px; margin-top:80px;">
+<section style="margin:0px 200px; margin-top:80px; font-family: 'Noto Sans KR', sans-serif;">
 {%if user.is_authenticated%}
-    <h2>봉사 목록</h2>
+    <h2 style="font-family: 'Nanum Gothic Coding', sans-serif;">봉사 목록</h2>
     {%if user.is_superuser%}
         <a href="{%url 'education:new' %}">새 봉사 올리기</a>
     {%endif%}
@@ -19,7 +19,7 @@
         {%endif%}
         </div>
         <div style="display:flex; flex-direction: column; justify-content: space-around;">
-            <a href="{%url 'education:detail' post.id%}"><h3>{{post.title}}</h3></a>
+            <a href="{%url 'education:detail' post.id%}"><h3 style="font-family: 'Nanum Gothic Coding', sans-serif;">{{post.title}}</h3></a>
             글쓴이: {{post.writer}} 
             {%if post.work_hour%}
                 <div style="width: 110px;border: tomato 1px solid; padding: 3px; background-color: tomato; color:white;">봉사시간 인정</div>
