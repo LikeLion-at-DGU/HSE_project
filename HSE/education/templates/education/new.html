@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %} 
-<section style="margin:0px 30px; margin-top:80px;">
+<section style="margin:0px 200px; margin-top:80px;">
 {%if user.is_superuser%}
 	<form action="{%url 'education:create'%}" method="post" enctype="multipart/form-data">
 		{%csrf_token%}
@@ -15,7 +15,7 @@
 		<p>사진: <input type="file" name="image"></p>
 		<p>설명 영상 : <input type="text" name="video"> (해당 동영상 유튜브 페이지 url 적어주세요)</p>
 		<p>내용 : 
-			<textarea type="text" name="body" id="" cols="150" rows="50">
+			<textarea type="text" name="body" id="" cols="130" rows="50">
 1. 행사명:
 
 2. 대상:
