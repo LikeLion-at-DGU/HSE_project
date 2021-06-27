@@ -3,7 +3,7 @@
 
 {% block content %}
 <section style="margin:0px 200px; margin-top:80px;">
-    <h2>{{post.title}}</h2>
+    <h2 style="font-family: 'Nanum Gothic Coding', sans-serif;">{{post.title}}</h2>
     <p>작성자 : {{post.writer}} / 작성 날짜 : {{post.pub_date}}</p>
     <hr>
     {% if post.video%}
@@ -12,7 +12,7 @@
     <p>신청 기한: {{post.due_date}}</p>
     <p>주 강사: {{post.main_teacher}}명 / 보조 강사: {{post.sub_teacher}}명</p>
     <p>봉사 일시: {{post.work_date}}</p>
-    <p>인정 봉사 시간: {{post.work_hour}}</p>
+    <p>인정 봉사 시간: {{post.work_hour}}시간</p>
     {% if post.image%}
         <p><img src="{{ post.image.url }}" style="width:60%" alt="사진"></p>
     {% endif %}
