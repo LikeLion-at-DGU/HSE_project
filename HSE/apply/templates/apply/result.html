@@ -16,11 +16,12 @@
             주 강사 : {{i.name}} <br>
             번호(뒤 4자리) : {{i.phone_num}} <br>
             id : {{i.applicant}}
-        </p>   
+         
 
             <br>
             <br>
         {% endfor %} 
+        </p>  
     </div>
     
     <div style="width:30%;  margin-top:50px;  text-align:center; overflow:scroll;">
@@ -31,12 +32,13 @@
         {% for i in sub %}
         봉사명 : {{i.title}} <br>
         보조 강사 : {{i.name}}  <br>
-        번호(뒤 4자리) : {{i.phone_num}}
+        번호(뒤 4자리) : {{i.phone_num}} <br>
         id : {{i.applicant}}
-        </p>
+        
         <br>
         <br>
         {% endfor %}
+        </p>
     </div>
 </div>
 </section>
