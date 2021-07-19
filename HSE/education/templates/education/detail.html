@@ -7,6 +7,7 @@
     <p>작성자 : {{post.writer}} / 작성 날짜 : {{post.pub_date}}</p>
     <hr>
     {% if post.video%}
+    <!-- 유튜브 주소를 줬다면 영상 가져와서 띄우기 -->
         <iframe width="560" height="315" src="{{post.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     {% endif %}
     <p>신청 기한: {{post.due_date}}</p>
@@ -14,23 +15,28 @@
     <p>봉사 일시: {{post.work_date}}</p>
     <p>인정 봉사 시간: {{post.work_hour}}시간</p>
     {% if post.image%}
+    <!-- 이미지가 있다면 띄우기 -->
         <p><img src="{{ post.image.url }}" style="width:60%" alt="사진"></p>
     {% endif %}
     <p><pre>{{post.body}}</pre></p>
     {% if post.extrafile%}
+    <!-- 추가 파일이 있다면 띄우기 -->
         <p>
             Attachment: <a class="btn" href="{{ post.extrafile.url }}" target="_blank">{{post.extrafile.name}}</a>
         </p>
     {% endif %}
 
     {%if author%}
+    <!-- 현재 접속자가 현재 봉사 글 작성자라면 버튼 띄우기 -->
         <a href="{%url 'education:edit' post.id %}" class="btn_post">수정하기</a>
         <a href="{%url 'education:delete' post.id %}" class="btn_post">삭제하기</a>
     {%endif%}
 
     {%if is_dead%}
+    <!-- 마감하되기 전이라면 신청하기 버튼 -->
         <a href="{%url 'apply:apply_main_sub' post.id %}" class="btn_post">신청하기</a>
     {%else%}
+    <!-- 마감된 후라면 결과 보기 버튼 -->
         <a href="{%url 'apply:apply_result' post.id %}" class="btn_post">결과 보기</a>
     {%endif%}
 </section>
