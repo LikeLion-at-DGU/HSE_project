@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %} 
-<section style="margin:0px 200px; margin-top:80px;">
-{%if user.is_superuser%}
+{% block content %}
+<section style="margin:0px 200px; margin-top:80px; font-family: 'Noto Sans KR', sans-serif;">
+	{%if user.is_superuser%}
 	<form action="{%url 'education:create'%}" method="post" enctype="multipart/form-data">
 		{%csrf_token%}
 		<p>제목 : <input type="text" name="title" required></p>
@@ -14,8 +14,8 @@
 		<p>인정 봉사 시간 : <input type="number" name="work_hour" min="0" required></p>
 		<p>사진: <input type="file" name="image"></p>
 		<p>설명 영상 : <input type="text" name="video"> (해당 동영상 유튜브 페이지 url 적어주세요)</p>
-		<p>내용 : 
-			<textarea type="text" name="body" id="" cols="130" rows="50">
+		<p>내용 :
+			<textarea style="width: 100%;" type="text" name="body" id="" cols="130" rows="50">
 1. 행사명:
 
 2. 대상:
@@ -34,12 +34,12 @@
 	<script>
 		document.getElementById('currentDate').min = new Date().toISOString().substring(0, 10);;
 	</script>
-{%else%}
+	{%else%}
 	<!-- 괸라자 아니면 나가 -->
 	<script>
 		alert("권한이 없습니다.");
-		window.location.href="{%url 'education:edulist'%}"
+		window.location.href = "{%url 'education:edulist'%}"
 	</script>
-{%endif%}
+	{%endif%}
 </section>
-{% endblock %} 
+{% endblock %}
