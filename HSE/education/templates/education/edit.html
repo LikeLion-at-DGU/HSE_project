@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %} 
-<section style="margin:0px 200px; margin-top:80px;">
+<section style="margin:0px 200px; margin-top:80px; font-family: 'Noto Sans KR', sans-serif;">
 {%if user.is_superuser and author%}
 	<form action="{% url 'education:update' post.id %}" method="post" enctype="multipart/form-data">
 		{%csrf_token%}
@@ -14,7 +14,7 @@
 		<p>인정 봉사 시간 : <input type="number" name="work_hour" value="{{post.work_hour}}" required></p>
 		<p>설명 영상 : <input type="text" name="video" value="{{post.video}}"> (해당 동영상 유튜브 페이지 url 적어주세요)</p>
 		<p>사진: <input type="file" name="image"></p>
-		<p>내용 : <textarea type="text" name="body" id="" cols="130" rows="50">{{post.body}}</textarea></p>
+		<p>내용 : <textarea style="width:100%;" type="text" name="body" id="" cols="130" rows="50">{{post.body}}</textarea></p>
 		<p>추가 첨부파일: <input type="file" name="extrafile"></p>
 		<button type="submit">제출</button>
 	</form>
