@@ -5,11 +5,10 @@ import random
 import datetime
 
     
-def apply_main_sub(request, post_id):
+def apply_main_sub(request, post_id): 
     post=get_object_or_404(EduPost,pk=post_id)
-    apply_o=apply.objects.all()
-    return render(request, "apply/apply.html",{'post':post,'apply':apply_o})
-
+    return render(request, "apply/apply.html",{'post':post})
+# 어떤 봉사에 지원을 할지 정해주기 위해서 post라는 변수에 지원하려는 봉사의 정보를 담아 지원하는 apply.html로 넘겨줌
 
 def apply_new(request):
     a=request.user
