@@ -4,8 +4,10 @@
 {% block content %}
 <section style="margin:0px 200px; margin-top:80px; font-family: 'Noto Sans KR', sans-serif;">
 {%if user.is_authenticated%}
+<!-- 로그인한 사람만 봉사 목록 확인 가능 -->
     <h2 style="font-family: 'Nanum Gothic Coding', sans-serif;">봉사 목록</h2>
-    {%if user.is_superuser%}
+    {%if user.is_superuser%} 
+    <!-- superuser만 글 작성 가능(일반 유저는 글 작성 불가) -->
         <a href="{%url 'education:new' %}">새 봉사 올리기</a>
     {%endif%}
     {%for post in posts%}
@@ -13,8 +15,10 @@
     <div style="display:flex; margin: 10px 0px; height: 20vh;">
         <div style="overflow:hidden;margin:0px 30px;width:20vh; height:20vh;border:solid black 3px;border-radius:10%">
         {%if post.image%}
+        <!-- 게시글에 따로 이미지가 있었으면 썸네일 제작 -->
             <img src="{{ post.image.url }}" style="object-fit: cover; width:100%; height: 100%;" alt="사진">
         {%else%}
+        <!-- 게시글에 따로 이미지가 없을 경우 로고를 썸네일로 -->
             <img src="../../static/images/main.png" style="width:15vh; height:15vh; position:relative; top:2.5vh; left:2.5vh;">
         {%endif%}
         </div>
@@ -22,6 +26,7 @@
             <a href="{%url 'education:detail' post.id%}"><h3 style="font-family: 'Nanum Gothic Coding', sans-serif;">{{post.title}}</h3></a>
             글쓴이: {{post.writer}} 
             {%if post.work_hour%}
+            <!-- 봉사 인정 시간이 있다면 '봉사시간 인정' 뱃지 달아주기-->
                 <div style="width: 110px;border: tomato 1px solid; padding: 3px; background-color: tomato; color:white;">봉사시간 인정</div>
             {%else%}
                 <div style="width: 100px;"></div>
@@ -31,7 +36,7 @@
     {%endfor%}
 
 {%else%} 
-<!-- 로그인 안돼있으면 돌아가 -->
+<!-- 로그인 안돼있을 경우 로그인 화면으로 윪겨주기 -->
     <script>
         alert("로그인 후 이용해주세요");
         window.location.href="{%url 'account_login'%}"

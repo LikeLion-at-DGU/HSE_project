@@ -3,7 +3,8 @@
 
 {% block content %}
 <section style="margin:0px 200px; margin-top:80px; font-family: 'Noto Sans KR', sans-serif;">
-	{%if user.is_superuser%}
+{%if user.is_superuser%}
+<!-- 관리자만 봉사 게시글 작성 가능 -->
 	<form action="{%url 'education:create'%}" method="post" enctype="multipart/form-data">
 		{%csrf_token%}
 		<p>제목 : <input type="text" name="title" required></p>
@@ -34,8 +35,8 @@
 	<script>
 		document.getElementById('currentDate').min = new Date().toISOString().substring(0, 10);;
 	</script>
-	{%else%}
-	<!-- 괸라자 아니면 나가 -->
+{%else%}
+<!-- 괸라자가 아닌데 url로 접근하였을 경우 경고창 띄워주고 글 목록으로 이동시키기 -->
 	<script>
 		alert("권한이 없습니다.");
 		window.location.href = "{%url 'education:edulist'%}"
