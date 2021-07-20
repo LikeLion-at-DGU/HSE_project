@@ -2,10 +2,12 @@
 {% load static %}
 
 {% block content %}
+<!--로그인된 경우 사용자의 프로필 보여주는 페이지-->
 <section style="margin:0px 30px; margin-top:80px;">
   <div class="container">
     {% if user.is_authenticated %}
     <h2>
+      <!--사용자 이름-->
       {{user.username}}
     </h2>
     <br>
@@ -25,6 +27,7 @@
     <hr style="margin-left:17%; width: 70%;">
     <div>
       <br><br><br>
+      <!--사용자 참여 봉사 목록-->
       <table class="table">
         <thead>
           <tr style="font-size:1.3vw;">
@@ -55,6 +58,7 @@
       </table>
     </div>
 
+    <!--로그아웃 상태인 경우-->
     {% else %}
     <div style="display:block; text-align: center; width:900px;margin: 300px auto; position:relative;">
       <h3>로그인 후 이용 가능</h3>
