@@ -1,6 +1,7 @@
+<!-- 메인페이지html -->
 {% extends 'base.html' %}
 {% load static %}
-<!-- Add your content of head and header -->
+
 <!DOCTYPE html>
 <html lang="en">
 {% block content %}
@@ -11,8 +12,6 @@
   <meta content="description" name="description">
   <meta name="google" content="notranslate" />
   <meta content="Mashup templates have been developped by Orson.io team" name="author">
-
-  <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
   
   <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon">
@@ -24,11 +23,7 @@
 
 <body style="font-family: 'Open Sans', sans-serif;">
 
- <!-- Add your content of header -->
-
-
-
-<!-- Add your site or app content here -->
+    <!-- 메인페이지 소개파트  -->
 <div class="background-image-container white-text-container" style="background-image: url('https://cdn.dribbble.com/users/1925451/screenshots/3960764/startup1.jpg?compress=1&resize=800x600');   background-size: 47%;
 color: black; margin-top:80px;" >
     <div class="overlay"></div>
@@ -43,6 +38,7 @@ color: black; margin-top:80px;" >
     </div>
 </div>
 
+<!-- 사이트 소개 파트 -->
 <div class="section-container">
     <div class="container">
         <div class="row">
@@ -76,8 +72,8 @@ color: black; margin-top:80px;" >
     </div>
 </div>
 
+<!-- 봉사단 소개 파트 -->
 <div class="section-container section-half-background-image-container" >
-    
     <div class="container">
         <div class="row">
             <div class="reveal">
@@ -87,13 +83,12 @@ color: black; margin-top:80px;" >
                 <h3>Dongguk univ.</h3>
                 <p style="font-family: 'Noto Sans KR', sans-serif;">Hi-Sw 봉사단은 정보소외계층, 중학생, 고등학생 그리고 비전공자 봉사단으로 뉘어져 있습니다.</p>
                 <p>각 봉사단의 봉사활통은 엔트리게임만들기, 구름IDE를 이용한 코딩 교육, 오조봇 등의 코딩 교육용 플랫폼을 이용한 IT교육 봉사활동 위주로 진행됩니다.</p>
-
             </div>
         </div>
     </div>
 </div>
 
-
+<!-- 봉사단 연락처 및 정보 파트 -->
 <div class="">
     <div class='container-fluid' >
         <div class="row map-container">
@@ -123,7 +118,7 @@ color: black; margin-top:80px;" >
     </div>
 </div>
 
-
+<!-- 봉사단과 연락 기능 파트 -->
 <div class="section-container" id="contact-section-container">
     <div class="container contact-form-container">
         <div class="row">
@@ -167,6 +162,7 @@ color: black; margin-top:80px;" >
 </div>
 
 
+<!-- js  -->
 <script>
 document.addEventListener("DOMContentLoaded", function (event) {
     
