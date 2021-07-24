@@ -5,7 +5,7 @@
 
 동국대학교 멋쟁이사자처럼 9 심바톤 3팀 HSE팀 (Hi-Sw-Education)
 
-## Developed By
+## Built With
 
 - Team leader: [서희찬](https://github.com/seochan99)
 - Team member: [박상준](https://github.com/tkdwns414), [이태검](https://github.com/LeeTaeGeom), [정민경](https://github.com/kkong1007)
