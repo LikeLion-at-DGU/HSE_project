@@ -1,9 +1,9 @@
 # HSE_project
 
-![badges](https://img.shields.io/badge/python-3.8-blue)
+![badges](https://img.shields.io/badge/python-3.9-blue)
 ![badges](https://img.shields.io/badge/Django-3.2.4-yellow)
 
-동국대학교 멋쟁이사자처럼 심바톤 3팀 HSE팀 (Hi-Sw-Education)
+동국대학교 멋쟁이사자처럼 9 심바톤 3팀 HSE팀 (Hi-Sw-Education)
 
 ## Built With
 
@@ -18,7 +18,7 @@
 git clone https://github.com/LikeLion-at-DGU/HSE_project.git
 ```
 
-2. Django 설치
+2. Django 설치
 
 ```
 pip install django
