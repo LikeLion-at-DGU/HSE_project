@@ -42,10 +42,30 @@ pip install pillow
 cd HSE
 ```
 
-6. 실행
+6. 모델의 변경내용 DB 스키마에 적용하기 위해 마이그레이션 생성
+
+```
+python manage.py makemigrations
+```
+
+7. DB에 마이그레이션 적용
+
+```
+python manage.py migrate
+```
+
+8. 실행
 
 ```
 python manage.py runserver
+```
+
+### 봉사 등록 하고 싶은 경우 superuser를 생성하여 로그인
+- superuser - 게시글 작성 및 수정 가능
+- 일반 유저 - 신청만 가능
+
+```
+python manage.py createsuperuser
 ```
 
 ## Introduce
