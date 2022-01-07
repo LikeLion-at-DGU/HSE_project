@@ -10,13 +10,14 @@
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %} {{ form.as_p }}
         <div class="login-btn">
-          <input type="submit" class="upload-btn" value="Login" />
+          <input style="height: 20px; background-color: #c7c7c7; border-radius: 10px; color: white; height: 30px; width: 80px; border: white;" type="submit" class="upload-btn" value="Login" />
         </div>
       </form>
     </div>
     <br>
     <div>
       <p>회원이 아니신가요? <a href="{% url 'account_signup' %}">회원가입</a></p>
+      <p>바밀번호를 잊으셨나요? <a href="{% url 'account_reset_password' %}">회원가입</a></p>
     </div>
   </div>
 </div> 
