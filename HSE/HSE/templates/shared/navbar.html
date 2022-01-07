@@ -12,7 +12,7 @@
                       <a href="{% url 'education:edulist'%}" class="btn btn-default navbar-btn" >Education</a>
                       <!-- 지원페이지 -->
                       
-                      {%if user.is_authenticated%}
+                       {%if user.is_authenticated%}
                       <a href="{%url 'mypage:mypage' %}" class="btn btn-default navbar-btn" >Profile</a> 
                       <a href="{%url 'account_logout'%}" class="btn btn-default navbar-btn" >Log-out</a> 
                       {%else%}
