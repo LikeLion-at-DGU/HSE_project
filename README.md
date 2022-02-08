@@ -1,5 +1,5 @@
 # HSE_project
-
+Hi-Sw봉사단의 봉사교육시스템을 향상시키기 위한 서비스 HSE(Hi-Sw-Education Service)
 ![badges](https://img.shields.io/badge/python-3.9-blue)
 ![badges](https://img.shields.io/badge/Django-3.2.4-yellow)
 
