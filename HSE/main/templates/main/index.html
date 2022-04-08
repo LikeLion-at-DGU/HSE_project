@@ -30,7 +30,7 @@ color: black; margin-top:80px;" >
     <div class="container" >
         <div class="row">
             <div class="col-xs-12">
-                <h1 style="font-family: 'Open Sans', sans-serif; color: whitesmoke; text-shadow: 2px 2px 4px gray;">Hi-Sw Volunteer Corps</h1>
+                <h1 style="font-family: 'Open Sans', sans-serif; color: whitesmoke; text-shadow: 2px 2px 4px gray;">HI-SW Volunteer Corps</h1>
                 <p style="font-size: 33px; color: black;">Dongguk University</p>
                 <a href="#contact-section-container" class="btn btn-primary btn-lg anchor-link" style="color: black;">Contact</a>
             </div>
@@ -49,23 +49,27 @@ color: black; margin-top:80px;" >
         <div class="row" style="text-align: center;">
             <div class="col-xs-12 col-md-4">
                 <div class="fa-container">
-                    <i class="fas fa-laptop-code fa-3x" aria-hidden="true"></i>
+                    <a href="{% url 'education:edulist'%}"><i class="fas fa-laptop-code fa-3x" aria-hidden="true"></i></a>
                 </div>
                 <h3 class="text-center">Education</h3>
                 <p>봉사를 위한 교육을 받을 수 있습니다.</p>
             </div>
             <div class="col-xs-12 col-md-4">
                 <div class="fa-container">
-                    <i class="fas fa-poll fa-3x" aria-hidden="true"></i>
+                    <a href="{% url 'education:edulist'%}">    <i class="fas fa-poll fa-3x" aria-hidden="true"></i></a>
                 </div>
                 <h3 class="text-center">Apply</h3>
                 <p>봉사 지원을 할 수 있습니다.</p>
             </div>
             <div class="col-xs-12 col-md-4">
                 <div class="fa-container">
-                    <i class="far fa-user fa-3x" aria-hidden="true"></i>
+                    {%if user.is_authenticated%}
+                    <a href="{%url 'mypage:mypage' %}"> <i class="far fa-user fa-3x" aria-hidden="true"></i></a> 
+                    {%else%}
+                      <a href="{%url 'account_login'%}"> <i class="far fa-user fa-3x" aria-hidden="true"></i></a> 
+                    {%endif%}
                 </div>
-                <h3 class="text-center">Profile</h3>
+               <h3 class="text-center">Profile</h3>
                 <p>자신의 봉사내역을 확인할 수 있습니다.</p>
             </div>
         </div>
@@ -76,92 +80,48 @@ color: black; margin-top:80px;" >
 <div class="section-container section-half-background-image-container" >
     <div class="container">
         <div class="row">
-            <div class="reveal">
-                <h2>Hi-Sw 봉사단 이란?</h2>
+            <div class="reveal" style="display: inline-block">
+                <h2>HI-SW 봉사단이란?</h2>
             </div>
             <div class="col-md-6 col-md-offset-6 text-column" style="font-family: 'Noto Sans KR', sans-serif;">
                 <h3>Dongguk univ.</h3>
-                <p style="font-family: 'Noto Sans KR', sans-serif;">Hi-Sw 봉사단은 정보소외계층, 중학생, 고등학생 그리고 비전공자 봉사단으로 뉘어져 있습니다.</p>
-                <p>각 봉사단의 봉사활통은 엔트리게임만들기, 구름IDE를 이용한 코딩 교육, 오조봇 등의 코딩 교육용 플랫폼을 이용한 IT교육 봉사활동 위주로 진행됩니다.</p>
+                <p style="font-family: 'Noto Sans KR', sans-serif;">HI-SW 봉사단은 정보소외계층, 중학생, 고등학생 그리고 비전공자 봉사단으로 나뉘어져 있습니다.</p>
+                <p>각 봉사단의 봉사활동은 엔트리게임만들기, 구름IDE를 이용한 코딩 교육, 오조봇 등의 코딩 교육용 플랫폼을 이용한 IT교육 봉사활동 위주로 진행됩니다.</p>
             </div>
         </div>
     </div>
 </div>
 
 <!-- 봉사단 연락처 및 정보 파트 -->
-<div class="">
+<div class="" id="contact-section-container">
     <div class='container-fluid' >
         <div class="row map-container">
-            <div id="map">
+            <!-- map id 색설정 가능 -->
+            <div id="map" > 
             </div>
             <div class="col-xs-10 col-md-4 contact-block-container reveal" >
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <h3>Phone</h3>
-                        <p>+82 010 1231 5132</p>
+                        <p>+82) 010-7226-2051</p>
 
                         <h3>E-mail</h3>
-                        <p>HiSwDonnguk@gmail.com</p>
+                        <p>hisoftware19@gmail.com</p>
 
                     </div>
 
                     <div class="col-xs-12 col-sm-6">
                         <h3>Address</h3>
-                        <p>동국대학교 신공학관 8층 OOO호</p>
+                        <p>동국대학교 원흥관 F314호 융합교육원 행정팀</p>
 
                         <h3>Open hours</h3>
-                        <p>Mon - Fri : 9AM - 5PM</p>
+                        <p>Mon-Fri : 9AM-5PM</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- 봉사단과 연락 기능 파트 -->
-<div class="section-container" id="contact-section-container">
-    <div class="container contact-form-container">
-        <div class="row">
-            <div class="col-xs-12 col-md-offset-2 col-md-8">
-                <div class="section-container-spacer">
-                    <h2 class="text-center">Contact</h2>
-                </div>
-                <form action="">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Email">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <textarea class="form-control" rows="3" placeholder="Enter your message"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox1" value="option1">Email me a copy
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox2" value="option2">I am a human
-                        </label>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Send message</button>
-                    <a href="" class="btn btn-default">Reset</a>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <!-- js  -->
 <script>
 document.addEventListener("DOMContentLoaded", function (event) {

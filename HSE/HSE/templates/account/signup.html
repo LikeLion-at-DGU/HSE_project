@@ -9,8 +9,10 @@
     <div class="signup-sec" >
       <form class="signup" method="POST" action="{% url 'account_signup' %}">
         {% csrf_token %} {{ form.as_p }}
+        <p style="margin: 20px 0px;">추후에 비밀번호를 찾기 기능을 이용하실 유저는 올바른 이메일을 입력해주길 바랍니다.</p>
         <div class="signup-btn">
-          <input type="submit" class="upload-btn" value="Signup" />
+          <input style="height: 20px; background-color: #c7c7c7; border-radius: 10px; color: white; height: 30px; width: 130px; border: white;" type="submit" class="upload-btn" value="Signup" />
+
         </div>
       </form>
     </div>
